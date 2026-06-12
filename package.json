@@ -1,18 +1,47 @@
 {
-  "name": "languagecoach",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+  "expo": {
+    "name": "LanguageCoach",
+    "slug": "language-coach",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "platforms": [
+      "android"
+    ],
+    "android": {
+      "package": "com.yourname.languagecoach",
+      "permissions": [
+        "RECORD_AUDIO",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_MICROPHONE",
+        "WAKE_LOCK",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "androidMode": "default"
+        }
+      ],
+      "./android-manifest.plugin",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow LanguageCoach to access your microphone."
+        }
+      ]
+    ]
   },
   "dependencies": {
-    "expo": "~54.0.34",
-    "expo-status-bar": "~3.0.9",
-    "react": "19.1.0",
-    "react-native": "0.81.5"
-  },
-  "private": true
+    "@expo/config-plugins": "^56.0.8",
+    "@notifee/react-native": "^9.1.8",
+    "expo-av": "~16.0.8",
+    "expo-background-fetch": "~14.0.9",
+    "expo-dev-client": "~6.0.21",
+    "expo-file-system": "~19.0.23",
+    "expo-notifications": "~0.32.17",
+    "expo-speech": "~14.0.8",
+    "expo-task-manager": "~14.0.9"
+  }
 }
